@@ -1,0 +1,10 @@
+{
+  "db" : "mongodb://localhost:27017/db",
+  "cloud": {
+    "cloud_name": "dnfqlg80a",
+    "api_key": "794449194213135",
+    "api_secret": "dcfpQguRYCbUmmWx6oZw_12244Q",
+    "dir": "books"
+  },
+  "uploadDir": "/public/uploads/"
+}

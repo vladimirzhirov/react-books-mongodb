@@ -15,9 +15,9 @@
     "express": "^4.16.4",
     "mongoose": "^5.3.11",
     "bluebird": "^3.5.3",
-    "fs": "^0.0.1-security",
     "express-fileupload": "^1.0.0",
-    "cloudinary": "^1.13.2"
+    "cloudinary": "^1.13.2",
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"

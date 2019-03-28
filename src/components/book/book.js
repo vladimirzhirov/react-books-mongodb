@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { reduxForm, formValueSelector, Field } from "redux-form";
 import { addBook, getBook, updateBook } from "../../thunk/thunk";
-import { validate, required } from "../../form/formValidate";
+import { validate, validateFileInput } from "../../form/formValidate";
 import { renderField } from "../../form/form";
 import { SubmissionError } from "redux-form";
 import WithErrorMessage from "../../components/error/withErrorMessage";
@@ -136,7 +136,7 @@ class Book extends Component {
                     component={DropZoneField}
                     type="file"
                     image={image ? image : null}
-                    validate={required}
+                    validate={validateFileInput}
                     handleOnDrop={this.handleOnDrop}
                     clear={this.clear}
                   />

@@ -1,3 +1,4 @@
+const appConfig = require("./config.json");
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -8,7 +9,7 @@ const router = require("./router");
 const fileUpload = require("express-fileupload");
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/db", { useNewUrlParser: true });
+mongoose.connect(appConfig.db, { useNewUrlParser: true });
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,12 +18,17 @@ app.use(fileUpload());
 
 app.post("/upload", (req, res, next) => {
   let imageFile = req.files.file;
-  imageFile.mv(`${__dirname}/public/uploads/${req.body.filename}`, err => {
-    if (err) {
-      next("");
+  imageFile.mv(
+    `${__dirname}${appConfig.uploadDir}${req.body.filename}`,
+    err => {
+      if (err) {
+        next({
+          message: `Error at upload to server file ${req.body.filename}`
+        });
+      }
+      res.json("Success");
     }
-    res.json("Success");
-  });
+  );
 });
 
 app.use("/books", router);
@@ -32,6 +38,5 @@ app.listen(PORT, function() {
 });
 
 app.use((err, request, response, next) => {
-  response
-    .status(500).json(err);
+  response.status(500).json(err);
 });

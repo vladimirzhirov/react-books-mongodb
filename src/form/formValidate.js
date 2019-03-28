@@ -1,21 +1,23 @@
+import { isEmpty } from "lodash";
+
 export const validate = values => {
   const errors = {};
 
-  if (!values.isbn) {
+  if (isEmpty(values.isbn)) {
     errors.isbn = "Input isbn";
   }
 
-  if (!values.name) {
+  if (isEmpty(values.name)) {
     errors.name = "Input name";
   }
 
-  if (!values.description) {
+  if (isEmpty(values.description)) {
     errors.description = "Input description";
   }
 
   return errors;
 };
 
-export const required = value => {
+export const validateFileInput = value => {
   return value ? undefined : "Select file";
 };
