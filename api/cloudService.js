@@ -1,5 +1,6 @@
 const cloudinary = require("cloudinary");
 const appConfig = require("./config.json");
+const lodash = require("lodash");
 
 cloudinary.config({
   cloud_name: appConfig.cloud.cloud_name,
@@ -9,8 +10,8 @@ cloudinary.config({
 
 const upload = filename => {
   return new Promise((resolve, reject) => {
-    if (!filename) {
-      resolve({});
+    if (lodash.isEmpty(filename)) {
+      resolve(null);
     }
     const filePath = `${__dirname}${appConfig.uploadDir}${filename}`;
     cloudinary.v2.uploader.upload(
