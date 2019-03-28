@@ -18,7 +18,7 @@ npm install
 
 Запустить Mongodb Compass Community, создать базу данных db и коллекцию books.
 
-Затем
+Затем выполнить:
 ```shell 
 nodemon server
 ```
