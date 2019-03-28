@@ -1,9 +1,9 @@
 # react-books-mongodb
 Тестовое приложение для обучения работы с mongodb и cloudinary.
 
-Сервер: node, express, mongoose
+Сервер: node, express, mongoose.
 
-Клиент: react, redux, dropzone (работа с файлами)
+Клиент: react, redux, dropzone (работа с файлами).
 
 Необходимо склонировать проект, в корневом каталоге выполнить
 ```shell 
