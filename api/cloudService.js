@@ -22,7 +22,9 @@ const upload = filename => {
       },
       (error, result) => {
         if (error) {
-          reject(error);
+          reject({
+            message: `Error at upload file to cloudinary: ${error.message}`
+          });
         } else {
           resolve(result);
         }

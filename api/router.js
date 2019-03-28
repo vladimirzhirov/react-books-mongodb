@@ -29,7 +29,7 @@ router.route("/get/:id").get((req, res, next) => {
   let id = req.params.id;
   books.findById(id, (err, book) => {
     if (lodash.isObject(err)) {
-      next({ message: `Error at find book with id = ${id}` });
+      next({ message: `Error at find book with id: ${id}` });
     }
     res.json(book);
   });
@@ -38,7 +38,7 @@ router.route("/get/:id").get((req, res, next) => {
 router.route("/update/:id").post(function(req, res, next) {
   books.findById(req.params.id, (err, book) => {
     if (lodash.isObject(err)) {
-      next({ message: `Error at update book with id = ${req.params.id}` });
+      next({ message: `Error at update book with id: ${req.params.id}` });
     } else {
       book.name = req.body.name;
       book.description = req.body.description;
@@ -57,9 +57,9 @@ router.route("/update/:id").post(function(req, res, next) {
 });
 
 router.route("/delete/:id").get(function(req, res, next) {
-  books.findOneAndDelete(req.params.id, function(err, obj) {
+  books.findOneAndDelete(req.params.id, err => {
     if (lodash.isObject(err)) {
-      next({ message: `Error at delete book with id = ${req.params.id}` });
+      next({ message: `Error at delete book with id: ${req.params.id}` });
     } else {
       res.json("Success");
     }
