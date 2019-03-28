@@ -15,6 +15,7 @@ npm install
 ```
 
 Установка БД: скачать mongodb-win32-x86_64-2008plus-ssl-4.0.6-signed.
+
 Запустить Mongodb Compass Community, создать базу данных db и коллекцию books.
 
 Затем
