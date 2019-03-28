@@ -28,3 +28,4 @@ nodemon server
 npm run start
 ```
 
+Настройки серверной части в файле config.json 
