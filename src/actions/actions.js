@@ -9,7 +9,7 @@ export function fetchBooksSuccessAction(books) {
 
 export function submitBookFailAction(error) {
   return {
-    type: ActionTypes.CREATE_BOOK_FAIL,
+    type: ActionTypes.SUBMIT_BOOK_FAIL,
     error: error
   };
 }
