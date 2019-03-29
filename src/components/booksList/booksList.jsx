@@ -20,6 +20,8 @@ const BooksList = props => {
     });
   };
 
+  console.log("render books", props);
+
   return (
     <WithErrorMessage error={props.error}>
       <div className="my-30">

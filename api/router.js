@@ -72,7 +72,7 @@ router.route("/update/:id").post(function(req, res, next) {
 });
 
 router.route("/delete/:id").get(function(req, res, next) {
-  books.findOneAndDelete(req.params.id, err => {
+  books.findOneAndDelete({ _id: req.params.id.toString() }, err => {
     if (lodash.isObject(err)) {
       next({ message: `Error at delete book with id: ${req.params.id}` });
     } else {

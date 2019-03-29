@@ -51,7 +51,7 @@ const renderPreview = (image, clear) => {
     <div>
       <div className="row">
         <div className="col-sm">
-          <img src={image.url} alt="" />
+          <img src={image.url} alt="" width="500px" height="500px" />
         </div>
       </div>
       <div className="row mt-4">

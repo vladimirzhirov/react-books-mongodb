@@ -23,9 +23,9 @@ export function loadBookFailAction(error) {
   };
 }
 
-export function deleteBooksSuccessAction(books) {
+export function deleteBooksSuccessAction(id) {
   return {
     type: ActionTypes.DELETE_BOOK_SUCCESS,
-    payload: books
+    id: id
   };
 }

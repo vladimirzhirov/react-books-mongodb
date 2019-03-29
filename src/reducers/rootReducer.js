@@ -22,7 +22,10 @@ const baseReducer = (state = initialState, action) => {
       };
     }
     case ActionTypes.DELETE_BOOK_SUCCESS: {
-      return { ...state, books: action.payload };
+      return {
+        ...state,
+        books: state.books.filter(item => item._id !== action.id)
+      };
     }
     case ActionTypes.SUBMIT_BOOK_FAIL: {
       return { ...state, error: action.error };

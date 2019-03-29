@@ -13,12 +13,11 @@ export const get = id => {
 };
 
 export const getAll = (page, bookPerPage) => {
-
   return axios.get(`http://localhost:4000/books/`, {
     params: { page: page, bookPerPage: bookPerPage }
   });
 };
 
 export const remove = id => {
-  return axios.get(`http://localhost:4000/books/delete/:${id}`);
+  return axios.get(`http://localhost:4000/books/delete/${id}`);
 };

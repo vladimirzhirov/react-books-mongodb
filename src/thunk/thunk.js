@@ -18,14 +18,14 @@ export const getBook = id => {
 
 export const getBooks = (page, bookPerPage) => dispatch => {
   getAll(page, bookPerPage).then(res => {
-     dispatch(fetchBooksSuccessAction(res.data));
+    dispatch(fetchBooksSuccessAction(res.data));
   });
 };
 
 export const deleteBook = id => dispatch => {
   remove(id)
     .then(res => {
-      dispatch(deleteBooksSuccessAction(res.data));
+      dispatch(deleteBooksSuccessAction(id));
     })
     .catch(err => console.log(err));
 };
