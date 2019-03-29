@@ -1,9 +1,9 @@
 import React from "react";
 import TableRow from "../tableRow/tableRow";
+import Paging from "../pagination/pagination";
 import WithErrorMessage from "../error/withErrorMessage";
 
 const BooksList = props => {
-  console.log(props);
   const renderRow = () => {
     return props.books.map(function(object, i) {
       return (
@@ -24,7 +24,13 @@ const BooksList = props => {
     <WithErrorMessage error={props.error}>
       <div className="my-30">
         <h3 align="center">Books</h3>
-        <table className="table table-striped  mt-3">
+        <Paging
+          page={props.page}
+          pages={props.pages}
+          {...props}
+          onPageClick={props.onPageClick}
+        />
+        <table className="table table-striped  mt-3" width="800px">
           <thead>
             <tr>
               <th>Image</th>

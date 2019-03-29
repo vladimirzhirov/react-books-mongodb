@@ -17,12 +17,27 @@ router.route("/add").post(function(req, res, next) {
 });
 
 router.route("/").get(function(req, res, next) {
-  books.find((err, list) => {
-    if (lodash.isObject(err)) {
-      next({ message: "Error at load books" });
-    }
-    res.json(list);
-  });
+  const page = parseInt(req.query.page);
+  const perPage = parseInt(req.query.bookPerPage);
+
+  books
+    .find({})
+    .select()
+    .skip(perPage * page - perPage)
+    .limit(perPage)
+    .then(data => {
+      let promise = books.countDocuments().exec();
+      promise.then(function(booksCount) {
+        res.status(200).json({
+          page: page,
+          pages: Math.ceil(booksCount / perPage),
+          books: data
+        });
+      });
+    })
+    .catch(err => {
+      next({ message: "Error at load books: " + err.message });
+    });
 });
 
 router.route("/get/:id").get((req, res, next) => {

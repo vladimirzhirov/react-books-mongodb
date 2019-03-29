@@ -16,9 +16,9 @@ export const getBook = id => {
   return get(id);
 };
 
-export const getBooks = () => dispatch => {
-  getAll().then(res => {
-    dispatch(fetchBooksSuccessAction(res.data));
+export const getBooks = (page, bookPerPage) => dispatch => {
+  getAll(page, bookPerPage).then(res => {
+     dispatch(fetchBooksSuccessAction(res.data));
   });
 };
 

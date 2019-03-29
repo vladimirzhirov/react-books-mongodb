@@ -10,9 +10,15 @@ const TableRow = ({ id, isbn, image, name, description, removeRow }) => {
   return (
     <tr className="tr-book">
       <td className="text-left">
-        <img src={image.url} alt="" width="130px" height="150px" />{" "}
+        <Link to={"/books/edit/" + id} className="btn btn-link">
+          <img src={image.url} alt="" width="130px" height="150px" />{" "}
+        </Link>
       </td>
-      <td className="td-name">{name}</td>
+      <td className="td-name">
+        <Link to={"/books/edit/" + id} className="btn btn-link">
+          {name}
+        </Link>
+      </td>
       <td>{isbn}</td>
       <td>{description}</td>
       <td className="align-middle">

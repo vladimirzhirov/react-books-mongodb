@@ -12,8 +12,11 @@ export const get = id => {
   return axios.get(`http://localhost:4000/books/get/${id}`);
 };
 
-export const getAll = () => {
-  return axios.get("http://localhost:4000/books");
+export const getAll = (page, bookPerPage) => {
+
+  return axios.get(`http://localhost:4000/books/`, {
+    params: { page: page, bookPerPage: bookPerPage }
+  });
 };
 
 export const remove = id => {

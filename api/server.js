@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const router = require("./router");
 const fileUpload = require("express-fileupload");
 
-mongoose.Promise = global.Promise;
+mongoose.Promise = Promise;
 mongoose.connect(appConfig.db, { useNewUrlParser: true });
 
 app.use(cors());

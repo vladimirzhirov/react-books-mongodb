@@ -10,7 +10,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx|json)$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
             }, 
@@ -32,11 +32,13 @@ module.exports = {
                         },
                     },
                 ]
-            },
+            }
+
         ],
+
     },
     resolve: {
-        extensions: ['.js', 'json', 'jpg', '.jsx', '.css', '.less']
+        extensions: ['.js', 'jpg', '.jsx', '.css', '.less']
     },
     stats: {
         errorDetails: true

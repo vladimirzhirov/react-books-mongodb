@@ -1,9 +1,11 @@
 import ActionTypes from "./actionTypes";
 
-export function fetchBooksSuccessAction(books) {
+export function fetchBooksSuccessAction(data) {
   return {
     type: ActionTypes.FETCH_BOOKS_SUCCESS,
-    payload: books
+    pages: data.pages,
+    page: data.page,
+    payload: data.books
   };
 }
 
