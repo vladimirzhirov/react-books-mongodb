@@ -23,7 +23,7 @@ app.post("/upload", (req, res, next) => {
     err => {
       if (err) {
         next({
-          message: `Error at upload to server file ${req.body.filename}`
+          message: `Error at upload to server file ${err}, ${req.body.filename}`
         });
       }
       res.json("Success");
